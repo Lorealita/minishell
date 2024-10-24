@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azahajur <azahajur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 16:14:06 by azahajur          #+#    #+#             */
-/*   Updated: 2024/10/24 12:27:06 by azahajur         ###   ########.fr       */
+/*   Created: 2023/04/29 16:37:45 by azahajur          #+#    #+#             */
+/*   Updated: 2023/05/03 14:48:21 by azahajur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <readline/history.h>
-# include <readline/readline.h>
-# include "libft.h"
-# include "printf.h"
-
-//estructura general de datos de la shell
-typedef struct s_data
+char	*ft_strrchr(const char *s, int c)
 {
-    char    *str;
-    int     ty
+	size_t		cnt;
+	const char	*ch;
 
-}	t_data;
-
-
-
-
-
-#endif
+	cnt = ft_strlen(s) + 1;
+	ch = s;
+	while (cnt--)
+	{
+		if (s[cnt] == (char)c)
+		{
+			ch = &s[cnt];
+			return ((char *)ch);
+		}
+		if ((char)c == '\0')
+			return ((char *)ch + cnt);
+	}
+	return (NULL);
+}

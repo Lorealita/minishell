@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr_hex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azahajur <azahajur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 16:14:06 by azahajur          #+#    #+#             */
-/*   Updated: 2024/10/24 12:27:06 by azahajur         ###   ########.fr       */
+/*   Created: 2023/07/13 17:10:09 by azahajur          #+#    #+#             */
+/*   Updated: 2024/02/07 20:53:52 by azahajur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "ft_printf.h"
 
-# include <stdio.h>
-# include <readline/history.h>
-# include <readline/readline.h>
-# include "libft.h"
-# include "printf.h"
-
-//estructura general de datos de la shell
-typedef struct s_data
+int	ft_putnbr_hex(unsigned int n, char p)
 {
-    char    *str;
-    int     ty
+	int	cnt;
 
-}	t_data;
-
-
-
-
-
-#endif
+	cnt = 0;
+	if (n >= 16)
+	{
+		cnt += ft_putnbr_hex(n / 16, p);
+		cnt += ft_putnbr_hex(n % 16, p);
+	}
+	else if (p == 'x')
+	{
+		write(1, &"0123456789abcdef"[n % 16], 1);
+		cnt++;
+	}
+	else if (p == 'X')
+	{
+		write(1, &"0123456789ABCDEF"[n % 16], 1);
+		cnt++;
+	}
+	return (cnt);
+}

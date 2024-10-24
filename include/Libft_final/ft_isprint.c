@@ -1,34 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azahajur <azahajur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 16:14:06 by azahajur          #+#    #+#             */
-/*   Updated: 2024/10/24 12:27:06 by azahajur         ###   ########.fr       */
+/*   Created: 2023/04/21 12:31:27 by azahajur          #+#    #+#             */
+/*   Updated: 2023/10/16 17:24:42 by azahajur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
-
-# include <stdio.h>
-# include <readline/history.h>
-# include <readline/readline.h>
-# include "libft.h"
-# include "printf.h"
-
-//estructura general de datos de la shell
-typedef struct s_data
+int	ft_isprint(int c)
 {
-    char    *str;
-    int     ty
-
-}	t_data;
-
-
-
-
-
-#endif
+	return (c >= 32 && c <= 126);
+}

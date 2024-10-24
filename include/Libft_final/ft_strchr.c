@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azahajur <azahajur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 16:14:06 by azahajur          #+#    #+#             */
-/*   Updated: 2024/10/24 12:27:06 by azahajur         ###   ########.fr       */
+/*   Created: 2023/04/29 13:57:51 by azahajur          #+#    #+#             */
+/*   Updated: 2023/06/28 22:00:17 by azahajur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <readline/history.h>
-# include <readline/readline.h>
-# include "libft.h"
-# include "printf.h"
-
-//estructura general de datos de la shell
-typedef struct s_data
+char	*ft_strchr(const char *s, int c)
 {
-    char    *str;
-    int     ty
+	int			cnt;
+	const char	*ch;
 
-}	t_data;
+	cnt = 0;
+	ch = s;
+	while (s[cnt] != '\0')
+	{
+		if (s[cnt] == (char)c)
+		{
+			ch = &s[cnt];
+			return ((char *)ch);
+		}
+		cnt++;
+	}
+	if ((char)c == '\0')
+		return ((char *)ch + cnt);
+	return (NULL);
+}
 
-
-
-
-
-#endif
+// int	main(void)
+// {
+// 	char c[] = "Costas\0dfteo";
+// 	printf("%s", ft_strchr(c, 't' + 256));
+// }

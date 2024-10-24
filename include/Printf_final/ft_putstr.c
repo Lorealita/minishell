@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azahajur <azahajur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 16:14:06 by azahajur          #+#    #+#             */
-/*   Updated: 2024/10/24 12:27:06 by azahajur         ###   ########.fr       */
+/*   Created: 2023/07/12 18:34:58 by azahajur          #+#    #+#             */
+/*   Updated: 2023/07/13 17:19:55 by azahajur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "ft_printf.h"
 
-# include <stdio.h>
-# include <readline/history.h>
-# include <readline/readline.h>
-# include "libft.h"
-# include "printf.h"
-
-//estructura general de datos de la shell
-typedef struct s_data
+int	ft_putstr(char *str)
 {
-    char    *str;
-    int     ty
+	int	cnt;
 
-}	t_data;
-
-
-
-
-
-#endif
+	cnt = 0;
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	while (str[cnt])
+	{
+		write(1, &str[cnt], 1);
+		cnt++;
+	}
+	return (cnt);
+}

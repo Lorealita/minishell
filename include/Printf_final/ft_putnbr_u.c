@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr_u.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azahajur <azahajur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 16:14:06 by azahajur          #+#    #+#             */
-/*   Updated: 2024/10/24 12:27:06 by azahajur         ###   ########.fr       */
+/*   Created: 2023/07/23 16:33:48 by azahajur          #+#    #+#             */
+/*   Updated: 2023/07/23 16:40:58 by azahajur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "ft_printf.h"
 
-# include <stdio.h>
-# include <readline/history.h>
-# include <readline/readline.h>
-# include "libft.h"
-# include "printf.h"
-
-//estructura general de datos de la shell
-typedef struct s_data
+int	ft_putnbr_u(unsigned int n)
 {
-    char    *str;
-    int     ty
+	int	cnt;
 
-}	t_data;
-
-
-
-
-
-#endif
+	cnt = 0;
+	if (n < 10)
+	{
+		cnt += ft_putchar((n + '0'));
+	}
+	else
+	{
+		cnt += ft_putnbr_u(n / 10);
+		cnt += ft_putnbr_u(n % 10);
+	}
+	return (cnt);
+}

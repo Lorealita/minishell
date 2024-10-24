@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azahajur <azahajur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 16:14:06 by azahajur          #+#    #+#             */
-/*   Updated: 2024/10/24 12:27:06 by azahajur         ###   ########.fr       */
+/*   Created: 2023/04/21 12:52:00 by azahajur          #+#    #+#             */
+/*   Updated: 2023/04/22 22:19:47 by azahajur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <readline/history.h>
-# include <readline/readline.h>
-# include "libft.h"
-# include "printf.h"
-
-//estructura general de datos de la shell
-typedef struct s_data
+void	*ft_memset(void *s, int c, size_t n)
 {
-    char    *str;
-    int     ty
+	size_t	cnt;
+	char	*str;
 
-}	t_data;
-
-
-
-
-
-#endif
+	str = s;
+	cnt = 0;
+	while (cnt != n)
+	{
+		str[cnt] = c;
+		cnt++;
+	}
+	return (str);
+}

@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azahajur <azahajur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 16:14:06 by azahajur          #+#    #+#             */
-/*   Updated: 2024/10/24 12:27:06 by azahajur         ###   ########.fr       */
+/*   Created: 2023/04/22 21:36:32 by azahajur          #+#    #+#             */
+/*   Updated: 2023/04/26 16:26:03 by azahajur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <readline/history.h>
-# include <readline/readline.h>
-# include "libft.h"
-# include "printf.h"
-
-//estructura general de datos de la shell
-typedef struct s_data
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-    char    *str;
-    int     ty
+	size_t		i;
+	const char	*str;
+	char		*str2;
 
-}	t_data;
-
-
-
-
-
-#endif
+	i = 0;
+	str = src;
+	str2 = dest;
+	if (!str && !str2)
+		return (0);
+	while (i < n)
+	{
+		str2[i] = str[i];
+		i++;
+	}
+	return (dest);
+}
