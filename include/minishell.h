@@ -6,29 +6,42 @@
 /*   By: azahajur <azahajur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:14:06 by azahajur          #+#    #+#             */
-/*   Updated: 2024/10/24 12:27:06 by azahajur         ###   ########.fr       */
+/*   Updated: 2024/10/24 17:36:54 by azahajur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
+# include "libft.h"
 # include <stdio.h>
+# include <unistd.h>
+# include <dirent.h>
+# include <fcntl.h>
+# include <signal.h>
+# include <limits.h>
+# include <termios.h>
+# include <dirent.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <sys/ioctl.h>
+# include <sys/param.h>
 # include <readline/history.h>
 # include <readline/readline.h>
-# include "libft.h"
-# include "printf.h"
+
+//variable global para señales
+int g_sig;
 
 //estructura general de datos de la shell
-typedef struct s_data
+typedef struct s_mshell
 {
     char    *str;
     int     ty
 
-}	t_data;
+}	t_mshell;
 
 
-
+//MINISHELL
 
 
 #endif
