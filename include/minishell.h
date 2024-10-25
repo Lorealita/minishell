@@ -6,7 +6,7 @@
 /*   By: azahajur <azahajur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:14:06 by azahajur          #+#    #+#             */
-/*   Updated: 2024/10/25 09:29:26 by azahajur         ###   ########.fr       */
+/*   Updated: 2024/10/25 14:22:39 by azahajur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,21 @@ typedef struct s_mshell
 }	t_mshell;
 
 
-//MINISHELL
-
+//EXECUTION
+/**
+ * @brief Ejecuta los comandos sin pipes. Se gestionan los fd, las redirecciones
+ * necesarias de entradas y salidas si hay files, se ejecuta el comando y vuelve
+ * al bucle.
+ * 
+ * @param path 
+ * Es la ruta al comando que debe ejecutarse.
+ * @param token 
+ * Es el array donde estan almacenados los parámetros de entrada ya
+ * separados y listos para procesarse.
+ * @param env 
+ * Parámetro de main que almacena las variables de entorno. Es un parámetro
+ * especial como argc y argv.
+ */
+void    execute_cmd(char *path, char **token, char **env);
 
 #endif

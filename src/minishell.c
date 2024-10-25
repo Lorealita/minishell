@@ -6,7 +6,7 @@
 /*   By: azahajur <azahajur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:14:01 by azahajur          #+#    #+#             */
-/*   Updated: 2024/10/25 09:03:08 by azahajur         ###   ########.fr       */
+/*   Updated: 2024/10/25 13:30:23 by azahajur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,14 @@ int main(int argc, char **argv, char **env)
         //tokenizar, revisar los casos especiales (parentesis, redirecciones..)
         //parseo 
         //ejecutar con pipes y ejecutar sin pipes
-        
+        if (pipes() == 0)
+        {
+            execute_pipes();
+        }
+        else
+        {
+            execute_cmd();
+        }
         
     }
     
