@@ -6,9 +6,9 @@
 /*   By: azahajur <azahajur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 17:37:23 by azahajur          #+#    #+#             */
-/*   Updated: 2024/10/24 17:37:41 by azahajur         ###   ########.fr       */
+/*   Updated: 2024/10/25 09:01:54 by azahajur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "minishell.h"
+# include "../include/minishell.h"
 

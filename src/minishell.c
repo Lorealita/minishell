@@ -6,11 +6,11 @@
 /*   By: azahajur <azahajur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:14:01 by azahajur          #+#    #+#             */
-/*   Updated: 2024/10/24 17:45:20 by azahajur         ###   ########.fr       */
+/*   Updated: 2024/10/25 09:03:08 by azahajur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "../include/minishell.h"
 
 int main(int argc, char **argv, char **env)
 {
