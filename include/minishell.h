@@ -6,7 +6,7 @@
 /*   By: azahajur <azahajur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:14:06 by azahajur          #+#    #+#             */
-/*   Updated: 2024/10/25 14:22:39 by azahajur         ###   ########.fr       */
+/*   Updated: 2024/10/29 17:26:07 by azahajur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,32 @@
 int g_sig;
 
 //estructura general de datos de la shell
-typedef struct s_mshell
+
+typedef struct s_cmd {
+    char    **argum;
+} t_cmd;
+
+typedef struct s_pipe {
+    int     flag;// si hay uno, sino cero
+} t_pipe;
+
+typedef struct s_redir {
+    int     f_red_input;
+    int     f_red_output;
+    int     f_red_delimit;
+    int     f_red_heredoc;
+} t_redir;
+
+typedef struct s_token
 {
-    char    *str;
-    int     ty
-
-}	t_mshell;
-
+    struct s_cmd    *cmd;
+    struct s_pipe   *pipe;
+    struct s_redir  *redir;
+    int              fdin; //puede ser struct o int
+    int              fdout;//puede ser struct o int
+    struct s_token  *next;
+    struct s_token  *prev;// lo necesito si es doblemente enlazada
+}   t_token;
 
 //EXECUTION
 /**
@@ -56,6 +75,6 @@ typedef struct s_mshell
  * Parámetro de main que almacena las variables de entorno. Es un parámetro
  * especial como argc y argv.
  */
-void    execute_cmd(char *path, char **token, char **env);
+void    execute_cmd(char *path, t_token *token, char **env);
 
 #endif
