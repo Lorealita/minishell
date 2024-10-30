@@ -6,7 +6,7 @@
 /*   By: azahajur <azahajur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:14:06 by azahajur          #+#    #+#             */
-/*   Updated: 2024/10/29 17:26:07 by azahajur         ###   ########.fr       */
+/*   Updated: 2024/10/30 17:37:29 by azahajur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ typedef struct s_redir {
     int     f_red_output;
     int     f_red_delimit;
     int     f_red_heredoc;
+    char             *fdin; //nombre de archivo de entrada
+    char             *fdout;//nombre de archivo de salida
 } t_redir;
 
 typedef struct s_token
@@ -54,11 +56,11 @@ typedef struct s_token
     struct s_cmd    *cmd;
     struct s_pipe   *pipe;
     struct s_redir  *redir;
-    int              fdin; //puede ser struct o int
-    int              fdout;//puede ser struct o int
+    struct s_token  *head;
     struct s_token  *next;
-    struct s_token  *prev;// lo necesito si es doblemente enlazada
+    //struct s_token  *prev;// lo necesito si es doblemente enlazada
 }   t_token;
+
 
 //EXECUTION
 /**
