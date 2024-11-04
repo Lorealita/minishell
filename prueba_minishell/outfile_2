@@ -1,0 +1,5 @@
+SHELL=/bin/zsh
+LSCOLORS=Gxfxcxdxbxegedabagacad
+SESSION_MANAGER=local/c3r6s1.42malaga.com:@/tmp/.ICE-unix/3924734,unix/c3r6s1.42malaga.com:/tmp/.ICE-unix/3924734
+QT_ACCESSIBILITY=1
+cosos a partir de aqui

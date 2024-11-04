@@ -6,7 +6,7 @@
 #    By: azahajur <azahajur@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/16 16:13:57 by azahajur          #+#    #+#              #
-#    Updated: 2024/10/24 14:09:49 by azahajur         ###   ########.fr        #
+#    Updated: 2024/11/04 16:51:01 by azahajur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ LIBFT = ./include/Libft_final/libft.a
 OBJ = $(FILES:.c=.o)
 FLAGS = -Wall -Werror -Wextra
 USER = azahajur
-FLAGSREAD = lreadline -L /home/$(USER)/.brew/opt/readline/lib -I /home/$(USER)/.brew/opt/readline/include
+FLAGSREAD = -L/home/$(USER)/.brew/opt/readline/lib -I/home/$(USER)/.brew/opt/readline/include -lreadline
 
 all: $(NAME)
 
