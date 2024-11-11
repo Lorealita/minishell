@@ -152,7 +152,7 @@ int main(int argc, char **argv, char **env)
 	g_sig = 0;
     while (1)
 	{
-		read_line = readline("🌝 Minishell$>");
+		read_line = readline("🌝 Minishell$> ");
 		if (!read_line)
 		{
 			printf("[Error]: readline_Fail");

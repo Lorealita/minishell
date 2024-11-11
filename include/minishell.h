@@ -6,7 +6,7 @@
 /*   By: azahajur <azahajur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:14:06 by azahajur          #+#    #+#             */
-/*   Updated: 2024/11/04 16:35:17 by azahajur         ###   ########.fr       */
+/*   Updated: 2024/11/08 19:36:35 by azahajur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,38 @@
 // variable global para señales
 int					g_sig;
 
-// estructura general de datos de la shell
+typedef enum e_lexer
+{
+			CMD,
+			PIPE,
+			REDIR,
+}			t_lexer;
+
+typedef enum e_red_type
+{
+			INPUT,
+			OUTPUT,
+			DELIMIT,
+			APPEND,
+}			t_red_type;
+
+typedef struct	s_lex_list
+{
+	t_lexer				lex_type;
+	struct s_lex_list	*next;	
+}				t_lex_list;
+
 typedef struct s_cmd
 {
 	char			**argum;
 	struct s_redir	*redir;
+	struct s_cmd	*next;
 }					t_cmd;
 
+//Si hacemos la comprobación gramatical lo primero de todo, comprobamos
+//si las pipes están bien puestas. Si lo están, se llega a ejecución.
+//En ese caso, podemos prescindir de esta estructura y simplemente si
+//hay varios comandos y llegamos a ejecución es porque hay pipes.
 typedef struct s_pipe
 {
 	int flag; // si hay uno, sino cero
@@ -45,22 +70,23 @@ typedef struct s_pipe
 
 typedef struct s_redir
 {
-	int				f_red_input;
-	int				f_red_output;
-	int				f_red_delimit;
-	int				f_red_heredoc;
+	// int				f_red_input;//se puede hacer con enum tb, que contenga >, <, >>, <<.
+	// int				f_red_output;
+	// int				f_red_delimit;
+	// int				f_red_heredoc;
+	t_red_type		red_type;
 	char			*fdin;  // nombre de archivo de entrada
 	char			*fdout; // nombre de archivo de salida
+	struct s_redir	*next;
 }					t_redir;
 
-typedef struct s_token
+typedef struct s_mshell
 {
-	struct s_cmd	*cmd;
-	struct s_pipe	*pipe;
-	struct s_token	*head;
-	struct s_token	*next;
+	t_lex_list		*lexer_list;
+	struct s_cmd	*cmd_list;
+	struct s_pipe	*pipe; //puede que no haga falta
 	// struct s_token  *prev;// lo necesito si es doblemente enlazada
-}					t_token;
+}					t_mshell;
 
 // EXECUTION
 /**
@@ -77,6 +103,6 @@ typedef struct s_token
  * Parámetro de main que almacena las variables de entorno. Es un parámetro
  * especial como argc y argv.
  */
-void				execute_cmd(char *path, t_token *token, char **env);
+void				execute_cmd(char *path, t_mshell *token, char **env);
 
 #endif

@@ -3,3 +3,12 @@ LSCOLORS=Gxfxcxdxbxegedabagacad
 SESSION_MANAGER=local/c3r6s1.42malaga.com:@/tmp/.ICE-unix/3924734,unix/c3r6s1.42malaga.com:/tmp/.ICE-unix/3924734
 QT_ACCESSIBILITY=1
 cosos a partir de aqui
+total 32
+drwxr-xr-x 2 azahajur _malaga   102 Nov  8 18:49 .
+drwxr-xr-x 6 azahajur _malaga   101 Nov  4 16:26 ..
+-rwxr-xr-x 1 azahajur _malaga 16136 Nov  8 18:49 a.out
+-rw-r--r-- 1 azahajur _malaga  3799 Nov  4 13:34 infile_1
+-rw-r--r-- 1 azahajur _malaga  3798 Nov  4 13:34 infile_2
+-rw-r--r-- 1 azahajur _malaga     0 Nov  8 18:57 outfile_1
+-rw-r--r-- 1 azahajur _malaga   203 Nov  4 13:34 outfile_2
+-rw-r--r-- 1 azahajur _malaga  3453 Nov  8 18:50 prueba2.c
