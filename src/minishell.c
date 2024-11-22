@@ -6,7 +6,7 @@
 /*   By: azahajur <azahajur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:14:01 by azahajur          #+#    #+#             */
-/*   Updated: 2024/11/04 16:29:32 by azahajur         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:06:31 by azahajur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	**tokenizer(char *read_line)
 int	main(int argc, char **argv, char **env)
 {
 	char *read_line;
-	t_token *token;
+	t_mshell *token;
 
 	(void)argv;
 	(void)argc;
@@ -76,7 +76,7 @@ int	main(int argc, char **argv, char **env)
 		// Tokenizar tiene que hacer split tieniendo en cuenta los simbolos
 		// especiales, y segun que simbolos enviar el contenido a la struct
 		// correspondiente.
-		token->cmd->argum = tokenizer(read_line);
+		token->cmd_list->argum = tokenizer(read_line);
 		// revisar casos especiales. Redirecciones o built-in.
 		// ejecutar con pipes y ejecutar sin pipes.
 		if (pipes() == 0)

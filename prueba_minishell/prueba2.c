@@ -18,9 +18,32 @@
 //variable global para señales
 int g_sig;
 
+typedef enum e_lexer
+{
+			CMD,
+			PIPE,
+			REDIR,
+}			t_lexer;
+
+typedef enum e_red_type
+{
+			INPUT,
+			OUTPUT,
+			DELIMIT,
+			APPEND,
+}			t_red_type;
+
+typedef struct	s_lex_list
+{
+	t_lexer				lex_type;
+	struct s_lex_list	*next;	
+}				t_lex_list;
+
 //estructura general de datos de la shell
 typedef struct s_cmd {
-    char	**argum;
+    char			**argum;
+	struct s_redir	*redir;
+	struct s_cmd	*next;
 }			t_cmd;
 
 typedef struct s_pipe {
@@ -28,23 +51,18 @@ typedef struct s_pipe {
 }			t_pipe;
 
 typedef struct s_redir {
-    int		f_red_input;
-    int		f_red_output;
-    int		f_red_delimit;
-    int		f_red_heredoc;
-    char	*fdin; //nombre de archivo de entrada
-    char	*fdout;//nombre de archivo de salida
+	t_red_type		red_type;
+    char			*fdin; //nombre de archivo de entrada
+    char			*fdout;//nombre de archivo de salida
+	struct s_redir	*next;
 }			t_redir;
 
-typedef struct s_token
+typedef struct s_mshell
 {
-    struct s_cmd	*cmd;
-    struct s_pipe	*pipe;
-    struct s_redir	*redir;
-    struct s_token	*head;
-    struct s_token	*next;
-    struct s_token	*prev;// lo necesito si es doblemente enlazada
-}					t_token;
+    t_lex_list		*lexer_list;
+	struct s_cmd	*cmd_list;
+	struct s_pipe	*pipe; //puede que no haga falta
+}				t_mshell;
 
 
 // void    init_struct(char *readline)
@@ -159,6 +177,7 @@ int main(int argc, char **argv, char **env)
 			exit(1);
 		}
 		add_history(read_line);
+		//Hace primero el split en las pipes. Luego procesar lo que queda.
         nw = ft_nword(read_line, '|', '>', '<');
         printf("El número de palabras es %d\n", nw);
     }
